@@ -1,6 +1,5 @@
 package pl.wsb.fitnesstracker.statistics.api;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -17,22 +16,21 @@ public class Statistics {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Nullable
-    private long id;
+    private Long id;
 
     @Column(name = "user_id", nullable = false)
-    private long userId;
+    private Long userId;
 
-    @Column(name = "total_trainings", nullable = false)
+    @Column(nullable = false)
     private int totalTrainings;
 
-    @Column(name = "total_distance")
+    @Column(nullable = false)
     private double totalDistance;
 
-    @Column(name = "total_calories_burned")
+    @Column
     private int totalCaloriesBurned;
 
-    public Statistics(long userId, int totalTrainings, double totalDistance, int totalCaloriesBurned) {
+    public Statistics(Long userId, int totalTrainings, double totalDistance, int totalCaloriesBurned) {
         this.userId = userId;
         this.totalTrainings = totalTrainings;
         this.totalDistance = totalDistance;
