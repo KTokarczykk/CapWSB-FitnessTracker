@@ -18,11 +18,10 @@ public class Statistics {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Nullable
-    private Long id;
+    private long id;
 
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @OneToOne(fetch = FetchType.LAZY)
-    private User user;
+    @Column(name = "user_id", nullable = false)
+    private long userId;
 
     @Column(name = "total_trainings", nullable = false)
     private int totalTrainings;
@@ -33,9 +32,8 @@ public class Statistics {
     @Column(name = "total_calories_burned")
     private int totalCaloriesBurned;
 
-    public Statistics(@Nullable Long id, User user, int totalTrainings, double totalDistance, int totalCaloriesBurned) {
-        this.id = id;
-        this.user = user;
+    public Statistics(long userId, int totalTrainings, double totalDistance, int totalCaloriesBurned) {
+        this.userId = userId;
         this.totalTrainings = totalTrainings;
         this.totalDistance = totalDistance;
         this.totalCaloriesBurned = totalCaloriesBurned;
