@@ -19,6 +19,7 @@ public class Statistics {
     private Long id;
 
     @Column(name = "user_id", nullable = false)
+    @OneToOne
     private Long userId;
 
     @Column(nullable = false)

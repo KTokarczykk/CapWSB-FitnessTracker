@@ -11,6 +11,7 @@ public class HealthMetrics {
     private Long id;
 
     @Column(name = "user_id", nullable = false)
+    @ManyToOne
     private Long userId;
 
     @Column(nullable = false)
