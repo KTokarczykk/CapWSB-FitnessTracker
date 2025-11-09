@@ -1,6 +1,7 @@
 package pl.wsb.fitnesstracker.healthmetrics.api;
 
 import jakarta.persistence.*;
+import pl.wsb.fitnesstracker.user.api.User;
 
 @Entity
 @Table(name = "Health_Metrics")
@@ -10,9 +11,9 @@ public class HealthMetrics {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
     @ManyToOne
-    private Long userId;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     @Column(nullable = false)
     private String date;
@@ -26,8 +27,8 @@ public class HealthMetrics {
     @Column
     private String heartRate;
 
-    public HealthMetrics(Long userId, String date, double weight, int height, String heartRate) {
-        this.userId = userId;
+    public HealthMetrics(User user, String date, double weight, int height, String heartRate) {
+        this.user = user;
         this.date = date;
         this.weight = weight;
         this.height = height;
