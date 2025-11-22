@@ -1,5 +1,7 @@
 package pl.wsb.fitnesstracker.event;
 
+import java.util.Date;
+
 import jakarta.persistence.*;
 import pl.wsb.fitnesstracker.user.api.User;
 
