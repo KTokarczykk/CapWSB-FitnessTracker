@@ -10,8 +10,17 @@ import pl.wsb.fitnesstracker.user.api.User;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
 @Entity
-@Table(name = "trainings")
+@Table(name = "Trainings")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
@@ -19,26 +28,27 @@ public class Training {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @Column(name = "start_time", nullable = false)
+    @Column(nullable=false)
     private Date startTime;
 
-    @Column(name = "end_time", nullable = false)
+    @Column(nullable=false)
     private Date endTime;
 
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "activity_type", nullable = false)
+    @Column(nullable=false)
     private ActivityType activityType;
 
-    @Column(name = "distance")
+    @Column(nullable=false)
     private double distance;
 
-    @Column(name = "average_speed")
+    @Column(nullable=false)
     private double averageSpeed;
 
     public Training(
