@@ -41,4 +41,6 @@ class UserServiceImpl implements UserService, UserProvider {
         return userRepository.findAll();
     }
 
+    public 
+
 }

@@ -14,4 +14,7 @@ public interface UserService {
      */
     User createUser(User user);
 
+    bool removeUser(User user);
+
+    
 }
